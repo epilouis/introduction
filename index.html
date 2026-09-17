@@ -1,0 +1,167 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Epi Louis — Interactive Introduction</title>
+    <meta name="description" content="Interactive self-introduction of Epi Louis — student, programmer, and fitness enthusiast." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root{
+        --bg:#07090d;--panel:#0d1117;--panel2:#111722;--text:#f4f7fb;--muted:#9aa4b2;--line:rgba(255,255,255,.09);
+        --accent:#8cffb3;--accent2:#84a9ff;--shadow:0 24px 80px rgba(0,0,0,.45)
+        }
+        *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 20% 0%,rgba(132,169,255,.10),transparent 28%),radial-gradient(circle at 85% 12%,rgba(140,255,179,.08),transparent 28%),var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;overflow-x:hidden}
+        a{color:inherit;text-decoration:none}.mono{font-family:"DM Mono",monospace}.wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+        nav{position:fixed;z-index:50;top:18px;left:50%;transform:translateX(-50%);width:min(980px,calc(100% - 28px));background:rgba(9,12,17,.72);backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:18px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 10px 40px rgba(0,0,0,.22)}
+        .brand{font-weight:800;letter-spacing:-.03em}.brand span{color:var(--accent)}.navlinks{display:flex;gap:8px}.navlinks a{padding:9px 12px;border-radius:10px;color:var(--muted);font-size:.9rem}.navlinks a:hover{background:rgba(255,255,255,.05);color:var(--text)}
+        .hero{min-height:100vh;display:grid;place-items:center;padding:120px 0 72px;position:relative}.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center}.eyebrow{display:inline-flex;gap:10px;align-items:center;padding:8px 12px;border:1px solid rgba(140,255,179,.25);background:rgba(140,255,179,.05);border-radius:999px;color:var(--accent);font-size:.78rem}.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 20px var(--accent)}
+        h1{font-size:clamp(3.6rem,8vw,7.4rem);line-height:.9;letter-spacing:-.075em;margin:22px 0}.hero p{font-size:1.08rem;line-height:1.75;color:var(--muted);max-width:620px}.hero strong{color:var(--text)}
+        .hero-actions{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}.btn{padding:13px 18px;border-radius:12px;border:1px solid var(--line);font-weight:700;display:inline-flex;gap:10px;align-items:center}.btn.primary{background:var(--text);color:#080a0e}.btn.ghost:hover{background:rgba(255,255,255,.05)}
+        .video-shell{position:relative;border:1px solid var(--line);border-radius:28px;padding:10px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));box-shadow:var(--shadow)}.video-shell:before{content:"PROFILE_STREAM / 01";position:absolute;z-index:3;top:22px;left:24px;font:12px "DM Mono";color:#dce4ef;background:rgba(0,0,0,.55);padding:7px 9px;border-radius:8px;backdrop-filter:blur(10px)}video{width:100%;display:block;border-radius:20px;background:#000;aspect-ratio:1/1;object-fit:cover}
+        section{padding:110px 0}.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:34px}.kicker{font:.78rem "DM Mono";color:var(--accent);letter-spacing:.12em}.section-head h2{font-size:clamp(2.4rem,5vw,4.6rem);letter-spacing:-.055em;margin:8px 0 0}.section-head p{max-width:520px;color:var(--muted);line-height:1.65}
+        .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.card{min-height:310px;padding:28px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.015));position:relative;overflow:hidden}.card:after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:var(--glow,rgba(140,255,179,.12));filter:blur(35px);right:-70px;bottom:-70px}.num{font:12px "DM Mono";color:var(--accent);margin-bottom:65px}.card h3{font-size:2.1rem;margin:0 0 12px;letter-spacing:-.04em}.card p{color:var(--muted);line-height:1.7;max-width:520px}.tagrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}.tag{font:12px "DM Mono";padding:7px 9px;border-radius:999px;border:1px solid var(--line);color:#c4ccd8}
+        .project{display:grid;grid-template-columns:.95fr 1.05fr;gap:18px}.project-visual{min-height:450px;border-radius:28px;border:1px solid var(--line);background:linear-gradient(145deg,#101722,#090c11);padding:26px;position:relative;overflow:hidden}.terminal{position:absolute;inset:26px;border:1px solid rgba(255,255,255,.08);border-radius:18px;background:#070a0f;padding:18px;font:14px/1.8 "DM Mono";color:#b7c0cd;box-shadow:inset 0 0 60px rgba(140,255,179,.02)}.terminal b{color:var(--accent)}.cursor{display:inline-block;width:8px;height:16px;background:var(--accent);vertical-align:-2px;animation:blink 1s steps(1) infinite}@keyframes blink{50%{opacity:0}}
+        .project-copy{border:1px solid var(--line);border-radius:28px;padding:34px;background:rgba(255,255,255,.025)}.project-copy h3{font-size:3rem;letter-spacing:-.05em;margin:12px 0 16px}.project-copy p{color:var(--muted);line-height:1.75}.project-link{display:inline-flex;margin-top:24px;padding:12px 16px;border-radius:12px;background:var(--accent);color:#07100a;font-weight:800}
+        .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.fact{padding:24px;border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.02)}.fact .label{font:12px "DM Mono";color:var(--muted)}.fact .value{font-weight:800;font-size:1.4rem;margin-top:8px}
+        footer{padding:70px 0 90px;color:var(--muted);border-top:1px solid var(--line);margin-top:80px}.footer-big{font-size:clamp(2rem,5vw,4.5rem);font-weight:800;letter-spacing:-.05em;color:var(--text);margin-bottom:14px}
+        .reveal{opacity:0;transform:translateY(28px);transition:.7s cubic-bezier(.2,.7,.2,1)}.reveal.show{opacity:1;transform:none}
+
+        /* Personal media */
+        .training-card{grid-column:1/-1;min-height:auto}
+        .training-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:28px;align-items:center}
+        .training-copy .num{margin-bottom:28px}
+        .gym-gallery{display:grid;grid-template-columns:1.12fr .88fr .88fr;gap:12px;min-height:370px}
+        .media-card{position:relative;overflow:hidden;border-radius:20px;border:1px solid var(--line);background:#090d13;cursor:zoom-in;isolation:isolate}
+        .media-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.62));pointer-events:none}
+        .media-card img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .75s cubic-bezier(.2,.7,.2,1),filter .5s ease}
+        .media-card:hover img{transform:scale(1.055);filter:brightness(1.08)}
+        .media-card:nth-child(1){grid-row:span 2}.media-card:nth-child(2),.media-card:nth-child(3){min-height:178px}
+        .media-label{position:absolute;z-index:2;left:14px;bottom:12px;font:11px "DM Mono";letter-spacing:.08em;color:#fff;background:rgba(0,0,0,.45);padding:7px 9px;border-radius:999px;backdrop-filter:blur(8px)}
+        .project-visual.showcase{min-height:520px;padding:22px;display:grid;place-items:center;background:radial-gradient(circle at 70% 10%,rgba(132,169,255,.13),transparent 35%),linear-gradient(145deg,#101722,#090c11)}
+        .rv-stage{position:relative;width:100%;height:100%;min-height:470px}
+        .rv-shot{position:absolute;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 24px 60px rgba(0,0,0,.48);background:#0a0e14;transition:transform .7s cubic-bezier(.2,.7,.2,1),box-shadow .7s ease;cursor:zoom-in}
+        .rv-shot img{width:100%;height:100%;object-fit:cover;display:block}
+        .rv-shot.dashboard{width:88%;height:67%;right:0;top:10%;transform:rotate(1.2deg)}
+        .rv-shot.login{width:48%;height:57%;left:0;bottom:2%;transform:rotate(-2.4deg)}
+        .rv-shot:hover{z-index:5;transform:rotate(0deg) scale(1.025);box-shadow:0 30px 90px rgba(0,0,0,.62)}
+        .rv-badge{position:absolute;z-index:6;right:18px;bottom:16px;font:12px "DM Mono";color:#07100a;background:var(--accent);padding:9px 12px;border-radius:999px;font-weight:700}
+        .lightbox{position:fixed;inset:0;z-index:1000;background:rgba(3,5,8,.88);backdrop-filter:blur(16px);display:grid;place-items:center;padding:28px;opacity:0;pointer-events:none;transition:.25s ease}
+        .lightbox.open{opacity:1;pointer-events:auto}.lightbox img{max-width:min(1200px,94vw);max-height:88vh;border-radius:18px;border:1px solid rgba(255,255,255,.16);box-shadow:0 30px 120px rgba(0,0,0,.7)}
+        .lightbox-close{position:fixed;right:26px;top:22px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.07);color:#fff;font-size:24px;display:grid;place-items:center;cursor:pointer}
+
+        @media(max-width:850px){.hero-grid,.project{grid-template-columns:1fr}.cards,.facts{grid-template-columns:1fr}.training-layout{grid-template-columns:1fr}.gym-gallery{grid-template-columns:1fr 1fr;min-height:520px}.media-card:nth-child(1){grid-column:1/-1;grid-row:auto;min-height:310px}.project-visual.showcase{min-height:430px}.rv-stage{min-height:390px}.rv-shot.dashboard{width:94%;height:58%}.rv-shot.login{width:56%;height:50%}.hero{padding-top:130px}.video-shell{max-width:620px}.navlinks a:nth-child(2){display:none}.section-head{display:block}.section-head p{margin-top:16px}}
+    </style>
+    </head>
+    <body>
+    <nav>
+        <a class="brand" href="#top">EPI<span>//</span>PROFILE</a>
+        <div class="navlinks mono"><a href="#about">ABOUT</a><a href="#hobbies">HOBBIES</a><a href="#project">PROJECT</a></div>
+    </nav>
+
+    <main id="top">
+        <section class="hero">
+        <div class="wrap hero-grid">
+            <div class="reveal show">
+            <div class="eyebrow mono"><span class="dot"></span> PROFILE ONLINE</div>
+            <h1>Epi<br>Louis.</h1>
+            <p>I’m a <strong>student and programmer</strong> who likes building things, learning how systems work, and pushing myself outside the screen too.</p>
+            <div class="hero-actions"><a class="btn primary" href="#hobbies">Explore profile ↓</a><a class="btn ghost" href="#project">View Research Vault</a></div>
+            </div>
+            <div class="video-shell reveal show">
+            <video src="vid.mp4" controls playsinline preload="metadata" poster=""></video>
+            </div>
+        </div>
+        </section>
+
+        <section id="about">
+        <div class="wrap">
+            <div class="section-head reveal">
+            <div><div class="kicker">01 / ABOUT</div><h2>More than one lane.</h2></div>
+            <p>This page is my introduction, but I wanted it to feel like something I’d actually build: part profile, part portfolio, part visual diary.</p>
+            </div>
+            <div class="facts reveal">
+            <div class="fact"><div class="label">ROLE</div><div class="value">Student</div></div>
+            <div class="fact"><div class="label">INTEREST</div><div class="value">Programming</div></div>
+            <div class="fact"><div class="label">HOBBY</div><div class="value">Training</div></div>
+            </div>
+        </div>
+        </section>
+
+        <section id="hobbies">
+        <div class="wrap">
+            <div class="section-head reveal"><div><div class="kicker">02 / HOBBIES</div><h2>What I spend time on.</h2></div><p>Two very different hobbies, same mindset: repetition, patience, and getting a little better every time.</p></div>
+            <div class="cards">
+            <article class="card training-card reveal" style="--glow:rgba(140,255,179,.14)">
+                <div class="training-layout">
+                    <div class="training-copy">
+                        <div class="num">HOBBY_01</div>
+                        <h3>Training</h3>
+                        <p>Working out is where I challenge myself physically. I enjoy the structure of training, tracking progress, and showing up even when progress is slow.</p>
+                        <div class="tagrow"><span class="tag">BENCH PRESS</span><span class="tag">TRICEPS</span><span class="tag">STRENGTH</span><span class="tag">CONSISTENCY</span></div>
+                    </div>
+                    <div class="gym-gallery" aria-label="Gym photo gallery">
+                        <button class="media-card" data-lightbox="assets/gym-1.jpg" aria-label="Open gym photo 1"><img src="gm (1).jfif" alt="Gym mirror photo"><span class="media-label">TRAINING / 01</span></button>
+                        <button class="media-card" data-lightbox="assets/gym-2.jfif" aria-label="Open gym photo 2"><img src="gm (2).jfif" alt="Gym progress photo"><span class="media-label">TRAINING / 02</span></button>
+                        <button class="media-card" data-lightbox="assets/gym-3.jfif" aria-label="Open gym photo 3"><img src="gm (3).jfif" alt="Gym mirror photo"><span class="media-label">TRAINING / 03</span></button>
+                    </div>
+                </div>
+            </article>
+            <article class="card reveal" style="--glow:rgba(132,169,255,.16)"><div class="num">HOBBY_02</div><h3>Programming</h3><p>I like turning ideas into working systems. I’ve explored C++, web development, databases, and AI-assisted development while still learning the logic behind the code.</p><div class="tagrow"><span class="tag">C++</span><span class="tag">WEB</span><span class="tag">DATABASES</span><span class="tag">AI TOOLS</span></div></article>
+            </div>
+        </div>
+        </section>
+
+        <section id="project">
+        <div class="wrap">
+            <div class="section-head reveal"><div><div class="kicker">03 / CODING HOBBY</div><h2>Research Vault.</h2></div><p>A project I built while learning full-stack development. It turned a coding hobby into something practical.</p></div>
+            <div class="project">
+            <div class="project-visual showcase reveal">
+                <div class="rv-stage">
+                    <button class="rv-shot dashboard" data-lightbox="assets/research-dashboard.png" aria-label="Open Research Vault dashboard screenshot"><img src="rb.png" alt="Research Vault dashboard"></button>
+                    <button class="rv-shot login" data-lightbox="assets/research-login.png" aria-label="Open Research Vault login screenshot"><img src="rv.png" alt="Research Vault login page"></button>
+                    <div class="rv-badge">LIVE PROJECT / RESEARCH VAULT</div>
+                </div>
+            </div>
+            <div class="project-copy reveal">
+                <div class="kicker">FEATURED BUILD</div>
+                <h3>From idea to working system.</h3>
+                <p>Research Vault is one of the projects that helped me understand how front-end, back-end, databases, authentication, and deployment connect together. I use AI to help me move faster, but I still want to understand what the code is doing and why it works.</p>
+                <div class="tagrow"><span class="tag">PHP</span><span class="tag">MYSQL</span><span class="tag">AUTH</span><span class="tag">DEPLOYMENT</span><span class="tag">UX</span></div>
+                <a class="project-link" href="https://lyfjshsresearchvault.unaux.com/dashboard.php" target="_blank" rel="noopener">Open Research Vault ↗</a>
+            </div>
+            </div>
+        </div>
+        </section>
+
+        <section>
+        <div class="wrap reveal">
+            <div class="kicker">04 / CURRENT MODE</div>
+            <div class="footer-big">Build. Learn. Repeat.</div>
+            <p style="color:var(--muted);max-width:650px;line-height:1.7">That’s basically me right now: learning more about programming, improving my projects, and still finding time to train.</p>
+        </div>
+        </section>
+    </main>
+
+    <footer><div class="wrap mono">EPI LOUIS // INTERACTIVE INTRODUCTION</div></footer>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close image">×</button>
+        <img id="lightboxImage" src="" alt="Expanded gallery image">
+    </div>
+    <script>
+        const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')})},{threshold:.13});
+        document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+        const lightbox=document.getElementById('lightbox');
+        const lightboxImage=document.getElementById('lightboxImage');
+        const closeLightbox=()=>{lightbox.classList.remove('open');lightbox.setAttribute('aria-hidden','true');lightboxImage.src='';document.body.style.overflow=''};
+        document.querySelectorAll('[data-lightbox]').forEach(el=>el.addEventListener('click',()=>{lightboxImage.src=el.dataset.lightbox;lightbox.classList.add('open');lightbox.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}));
+        document.getElementById('lightboxClose').addEventListener('click',closeLightbox);
+        lightbox.addEventListener('click',e=>{if(e.target===lightbox)closeLightbox()});
+        document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
+    </script>
+    </body>
+    </html>
